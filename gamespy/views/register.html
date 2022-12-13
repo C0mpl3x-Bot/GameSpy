@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <h1>Register</h1>
+  <div class="registerbox">
+    <img src="images/LoginUser.jpeg"
+      class="registerAva" alt="RegisterAva">
+    <h3>Fill in the form to register</h3>
+
+    <form method="POST" action="/registered">
+      <p>Username </p>
+      <input type="text" id="username" name="username" placeholder="Enter Username" required>
+      <p>Firstname </p>
+      <input type="text" id="firstname" name="firstname" placeholder="Enter Firstname" required>
+      <p>Lastname </p>
+      <input type="text" id="lastname" name="lastname" placeholder="Enter Lastname" required>
+      <p>Email</p>
+      <input type="email" id="email" name="email" placeholder="Enter Email" required>
+      <p>Password</p>
+      <input type="password" name="password" id="password" placeholder="Minimum Length Of 8" required>
+
+      <input type="submit" name="submit" value="Register">
+      <a href="login">Already have an account?</a>
+      <a style="float: right; font-size: 20px;" href='/'><i class="fa fa-home"></i></a>
+    </form>
+    <br>
+    <br>
+    <br>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/custom.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <h1>Login</h1>
+  <div class="loginbox">
+    <img src="images/LoginUser.jpeg" class="loginAva" alt="LoginAvatar">
+    <h3>Fill in the boxes to login</h3>
+    <form method="POST" action="/loggedin">
+      <p>Username</p>
+      <input type="text" name="username" placeholder="Enter Username" required>
+      <p>Password</p>
+      <input type="password" name="password" id="password" placeholder="Enter Password" required>
+      <input type="submit" name="submit" value="Login">
+      <a href="register">Don't have an account?</a>
+      <a style="float: right; font-size: 20px;" href='/'><i class="fa fa-home"></i></a>
+    </form>
+  </div>
+</body>
+
+</html>

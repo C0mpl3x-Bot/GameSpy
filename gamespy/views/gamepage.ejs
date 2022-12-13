@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Default Game Page</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+     <link href="css/custom.css" rel="stylesheet">
+     <script src="js/js.js"></script>
+     <script src="https://unpkg.com/scrollreveal"></script>
+     <link rel="stylesheet" type="text/css" href="css/custom.css" />
+</head>
+
+<!-- Navigation Nav bar and all the links -->
+<nav class="navbar navbar-expand-md navbar navbar-dark bg-secondary sticky-top">
+     <div class="container-fluid">
+          <a class="navbar-brand" href="/"> <img src="images/logo%20gamespy.png" alt="Game spy Logo" /></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+               <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                         <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="PopularGames">Popular Games</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="Complaints">Complaints</a>
+                    </li>
+
+                    <li class="nav-item">
+                         <a class="nav-link" href="Forum">Forum</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href="login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                         <a class="nav-link" href='/logout'>Logout</a>
+                    </li>
+               </ul>
+          </div>
+
+     </div>
+</nav>
+<div>
+     <h1 style="text-align: center;">
+          <%= gametitle %>
+     </h1>
+     <h3>How can I find the best prices for <%= gametitle %> offical title? </h3>
+     <p>GameSpy compares the cheapest prices of <%= gametitle %> on the digital downloads offical marketplaces to find
+               the best sales and discounts on trusted stores. </p>
+     <% availablegame.forEach(function(game){ %>
+          <% if(game.appid !=null){ %>
+               <iframe src="https://steamdb.info/embed/?appid=<%= game.appid %> "
+                    style="border:0;overflow:hidden;height:389px;width:100%;"></iframe>
+
+               <span class="heading">Game Average Rating</span>
+               <p><i class="fas fa-thumbs-up"></i>
+                    <%= game.positive_ratings %>
+               </p>
+               <p><i class="fas fa-thumbs-down"></i>
+                    <%= game.negative_ratings %>
+               </p>
+               <p>Game Average Ratings: <%= Math.round(game.average_ratings)%>%</p>
+               <script> linear.js(game.finalprice)</script>
+
+
+               <hr style="border:3px solid #f1f1f1">
+               <%}else{ %>
+                    <h3>
+                         <%= game.name %>
+                    </h3>
+                    <% } %>
+                         <% }) %>
+</div>
+<ul>
+     <div class="ptablegamepage" style="overflow-x:auto;">
+          <table class="tablegamepage">
+               <tr class="colgamepage">
+                    <th>Game Name</th>
+                    <th>Developer</th>
+                    <th>Publisher</th>
+                    <th>Steam Price</th>
+                    <th>GOG Price</th>
+                    <th>Ubisoft Price</th>
+                    <th>Origin Price</th>
+                    <th>EpicGames Price</th>
+                    <th>Genre</th>
+                    <th>Categories</th>
+               </tr>
+               <% availablegame.forEach(function(game){ %>
+                    <tr class="wposgamepage">
+                         <td>
+                              <%= game.name %></a>
+                         </td>
+                         <td>
+                              <%= game.developer %>
+                         </td>
+                         <td>
+                              <%= game.publisher %>
+                         </td>
+                         <td>
+                              <%= game.steam_price %>
+                         </td>
+                         <td>
+                              <%= game.GOG_price %>
+                         </td>
+                         <td>
+                              <%= game.ubisoft_price %>
+                         </td>
+                         <td>
+                              <%= game.origin_price %>
+                         </td>
+                         <td>
+                              <%= game.epicgames_price %>
+                         </td>
+                         <td>
+                              <%= game.steamspy_tags %>
+                         </td>
+                         <td>
+                              <%= game.categories %>
+                         </td>
+                    </tr>
+                    <% }) %>
+          </table>
+     </div>
+</ul>
+</body>
+
+</html>
